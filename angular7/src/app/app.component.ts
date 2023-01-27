@@ -10,8 +10,8 @@ export class AppComponent implements OnInit{
   empleados:any;
   constructor(private http: HttpClient) { };
   ngOnInit(): void {
-git 
-  }
+    
+    }
   title = 'angular7';
 
 }
