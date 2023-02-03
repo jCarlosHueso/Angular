@@ -37,7 +37,7 @@ public dataSource!: MatTableDataSource<Vehiculos>;
 
 
 aplicarFiltro(event: KeyboardEvent) {
-this.dataSource=((event.target) as HTMLInputElement).value;
+this.dataSource.filter=((event.target) as HTMLInputElement).value;
 }
 
 }
