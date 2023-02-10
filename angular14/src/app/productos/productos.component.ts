@@ -38,6 +38,8 @@ actualizarProducto(form:{value:Producto}) {
 crearProducto(form:{value:Producto}) {
   this.httpCliente.crearProductos(form.value).
   subscribe((product:Producto)=>this.prod=product);
+  setTimeout("1");
+  console.log("1seg");
   this.refrescar();
 }
  refrescar(){
