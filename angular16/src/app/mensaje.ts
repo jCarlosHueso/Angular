@@ -1,10 +1,6 @@
-import { Usuario } from "./usuario";
-
 export class Mensaje {
-
-id!:number;
-fecha!:string;
-usuario!:String;
-mensaje!:string;
-
+  id:number=0;
+  fecha:string='';
+  usuario:string=''
+  mensaje:string=''
 }
