@@ -10,18 +10,31 @@ import {HttpClientModule} from '@angular/common/http'
 import {FormsModule} from '@angular/forms'
 import { RouterModule } from '@angular/router';
 import { Chat2Component } from './chat2/chat2.component';
+import { TablaMaterialComponent } from './tabla-material/tabla-material.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatTableModule} from '@angular/material/table';
+import {MatFormField} from '@angular/material/form-field';
+
 @NgModule({
   declarations: [
     AppComponent,
     ChatComponent,
     LoginComponent,
     RegistroComponent,
-    Chat2Component
+    Chat2Component,
+    TablaMaterialComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,FormsModule,HttpClientModule,RouterModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    RouterModule,
+     BrowserAnimationsModule,
+     MatTableModule,
+     MatFormField
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })
