@@ -13,7 +13,10 @@ import { Chat2Component } from './chat2/chat2.component';
 import { TablaMaterialComponent } from './tabla-material/tabla-material.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTableModule} from '@angular/material/table';
-import {MatFormField} from '@angular/material/form-field';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatInputModule} from '@angular/material/input'
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import {MatFormField} from '@angular/material/form-field';
     RouterModule,
      BrowserAnimationsModule,
      MatTableModule,
-     MatFormField
+     MatFormFieldModule,
+     MatPaginatorModule,
+     MatSortModule,
+     MatInputModule
   ],
 
   providers: [],

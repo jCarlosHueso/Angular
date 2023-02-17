@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Mensaje } from '../mensaje';
 import { ServicioService } from '../servicio.service';
+import { Usuario } from '../usuario';
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
@@ -14,9 +15,7 @@ nombreUsuario:String='';
 msg:Mensaje=new Mensaje();
 Mensajes:Mensaje[]=[];
 
-constructor (private ruta:ActivatedRoute,private servicios:ServicioService){
-this.ruta.params.subscribe((x:Params)=>{this.nombreUsuario=x['name']});
-}
+constructor (private ruta:ActivatedRoute,private servicios:ServicioService){}
 EnviarMensaje() {
 this.servicios.EnviarMensaje(this.msg).subscribe(
   (x:Mensaje)=>{(this.msg=x)}
@@ -31,7 +30,9 @@ LeerMensaje(){
 
   );
 }
+ngOnInit(){
 
+  this.ruta.params.subscribe((params:Params)=>{this.nombreUsuario=params["nombreUsuario"]});
 
-
+}
 }
