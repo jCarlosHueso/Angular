@@ -12,24 +12,24 @@ export class LoginComponent {
 iraChat() {
 }
   usuario:Usuario=new Usuario();
-// logeoNoa() {
-//   let obtenido:Usuario=new Usuario();
-//   this.httpCliente.buscarPorMail(this.usuario).
-//   subscribe((us:any)=>{
-//     console.log(us);
-//     if (us!=null){
-//       obtenido.idUsuario=us[0].idUsuario;
-//       obtenido.email=us[0].email;
-//       obtenido.pwd=us[0].pwd;
-//       obtenido.nombre=us[0].nombre;
-//       this.enrutamiento.navigate(["chat"],
-//       {queryParams:{'name':obtenido.nombre}});
-//     }else
-//     {
-//       alert("Usuario no registrado")
-//     }
-//   })
-// }
+logeoNoa() {
+   let obtenido:Usuario=new Usuario();
+  this.httpCliente.buscarPorMail(this.usuario).
+  subscribe((us:any)=>{
+    console.log(us);
+    if (us!=null){
+      obtenido.idUsuario=us[0].idUsuario;
+      obtenido.email=us[0].email;
+      obtenido.pwd=us[0].pwd;
+      obtenido.nombre=us[0].nombre;
+      this.enrutamiento.navigate(["chat2"],
+      {queryParams:{'name':obtenido.nombre}});
+    }else
+    {
+      alert("Usuario no registrado")
+    }
+  })
+ }
 
   constructor(private enrutamiento:Router,
     private httpCliente:ServicioService){}
