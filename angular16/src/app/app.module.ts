@@ -11,13 +11,12 @@ import {FormsModule} from '@angular/forms'
 import { RouterModule } from '@angular/router';
 import { Chat2Component } from './chat2/chat2.component';
 import { TablaMaterialComponent } from './tabla-material/tabla-material.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTableModule} from '@angular/material/table';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatFormFieldModule} from '@angular/material/form-field';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatPaginatorModule} from '@angular/material/paginator'
 import {MatInputModule} from '@angular/material/input'
 import { MatSortModule } from '@angular/material/sort';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,17 +29,12 @@ import { MatSortModule } from '@angular/material/sort';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
-    RouterModule,
-     BrowserAnimationsModule,
-     MatTableModule,
-     MatFormFieldModule,
-     MatPaginatorModule,
-     MatSortModule,
-     MatInputModule
-  ],
+    FormsModule,HttpClientModule,RouterModule,
+    MatTableModule,MatFormFieldModule,
+    BrowserAnimationsModule,MatPaginatorModule,
+    MatInputModule,MatSortModule
 
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -10,14 +10,27 @@ import { ServicioService } from '../servicio.service';
   templateUrl: './tabla-material.component.html',
   styleUrls: ['./tabla-material.component.css']
 })
-export class TablaMaterialComponent implements AfterViewInit{
+export class TablaMaterialComponent implements AfterViewInit {
 
   displayedColumns: string[] = ['id', 'fecha', 'usuario', 'mensaje'];
   dataSource!: MatTableDataSource<Mensaje>;
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
-
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort ;
+  constructor(private servicio:ServicioService){
+    this.servicio.leerMensajes().subscribe(
+      (x:Mensaje[])=>{
+        this.dataSource=new MatTableDataSource<Mensaje>(x);
+        this.dataSource.paginator=this.paginator;
+        this.dataSource.sort=this.sort;
+      }
+    )
+  }
+  ngAfterViewInit(): void {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -25,24 +38,5 @@ export class TablaMaterialComponent implements AfterViewInit{
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
-  }
-constructor (private servicio:ServicioService){
-
-this.servicio.leerMensajes().subscribe
-((x:Mensaje[])=>{
-  this.dataSource= new MatTableDataSource<Mensaje>(x),
-  this.dataSource.paginator= this.paginator,
-  this.dataSource.sort= this.sort
-});
-
 }
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-  }
-
 }
-
-
-
-

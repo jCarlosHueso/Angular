@@ -13,7 +13,7 @@ iraChat() {
 }
   usuario:Usuario=new Usuario();
 logeoNoa() {
-   let obtenido:Usuario=new Usuario();
+  let obtenido:Usuario=new Usuario();
   this.httpCliente.buscarPorMail(this.usuario).
   subscribe((us:any)=>{
     console.log(us);
@@ -22,14 +22,15 @@ logeoNoa() {
       obtenido.email=us[0].email;
       obtenido.pwd=us[0].pwd;
       obtenido.nombre=us[0].nombre;
-      this.enrutamiento.navigate(["chat2"],
-      {queryParams:{'name':obtenido.nombre}});
+      // this.enrutamiento.navigate(["chat"],
+      // {queryParams:{'nombreUsuario':obtenido.nombre}});
+       this.enrutamiento.navigate(["chat/"+obtenido.nombre])
     }else
     {
       alert("Usuario no registrado")
     }
   })
- }
+}
 
   constructor(private enrutamiento:Router,
     private httpCliente:ServicioService){}

@@ -12,7 +12,7 @@ const routes: Routes = [
   {path:'registro',component:RegistroComponent},
   {path:'chat/:nombreUsuario',component:ChatComponent},
   {path: 'chat2', component:Chat2Component},
-  {path: 'tablaMaterial',component:TablaMaterialComponent}
+  {path: 'tablaMaterial', component:TablaMaterialComponent}
 ];
 
 @NgModule({

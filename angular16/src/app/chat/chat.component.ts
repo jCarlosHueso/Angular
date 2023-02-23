@@ -9,30 +9,22 @@ import { Usuario } from '../usuario';
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent {
-
-
-nombreUsuario:String='';
-msg:Mensaje=new Mensaje();
-Mensajes:Mensaje[]=[];
-
-constructor (private ruta:ActivatedRoute,private servicios:ServicioService){}
-EnviarMensaje() {
-this.servicios.EnviarMensaje(this.msg).subscribe(
-  (x:Mensaje)=>{(this.msg=x)}
-);
-
+  nombreUsuario:string='';
+  msg: Mensaje=new Mensaje();
+  Mensajes: Mensaje[]=[];
+constructor(private  ruta: ActivatedRoute,private servicios:ServicioService )
+{
+  this.ruta.params.subscribe((params:Params)=>{this.nombreUsuario=params['nombreUsuario']})
 }
+EnviarMensaje(){
+ this.servicios.EnviarMensaje(this.msg).subscribe(
+  (Xmsg:Mensaje)=>(this.msg=Xmsg)
 
-LeerMensaje(){
+ )
+ }
+LeerMensajes(){
   this.servicios.leerMensajes().subscribe(
-
-    (x:Mensaje[])=>{(this.Mensajes=x)}
-
-  );
-}
-ngOnInit(){
-
-  this.ruta.params.subscribe((params:Params)=>{this.nombreUsuario=params["nombreUsuario"]});
-
+    (Xmsg:Mensaje[])=>(this.Mensajes=Xmsg)
+  )
 }
 }

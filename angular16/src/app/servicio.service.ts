@@ -26,8 +26,6 @@ export class ServicioService {
     msg.fecha=formatDate(Date.now(),"HH:mm:ss/dd-MM-yy",this.local);
     return this.httpCliente.post<Mensaje>('http://moralo.atwebpages.com/menuAjax/chat/AltaMensaje.php' ,msg)
   }
-  locale(arg0: number, arg1: string, locale: any): string {
-    throw new Error('Method not implemented.');
-  }
+
 }
 //http://moralo.atwebpages.com/menuAjax/chat/SeleccionarUsuario.php
