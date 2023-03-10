@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row">
+
+<table class="table table-bordered">
+    <thead>
+      <th>Id</th><th scope="col">Nombre</th><th scope="col">Cargo</th><th scope="col">Dirección</th><th scope="col">Edad</th><th scope="col">Imagen</th><th scope="col">Eliminar</th><th scope="col">Seleccionar</th>
+    </thead>
+    <tr *ngFor="let emp of empleados">
+      <td>{{emp.id}}</td>
+      <td>{{emp.nombre}}</td>
+      <td>{{emp.cargo}}</td>
+      <td>{{emp.direccion}}</td>
+      <td>{{emp.edad}}</td>
+      <td><img src="{{emp.imagen}}" width="150px" height="100px"></td>
+      <td ><button class="btn bg-danger" (click)="eliminar(emp.id)" >Eliminar</button></td>
+      <td ><button class="btn bg-info" (click)="modificar(emp.id)" >Seleccionar</button></td>
+
+
+    </tr>
+  </table>
+
+<button class="btn bg-success" (click)="Aniadir()">Aniadir</button>
+<form>
+  <div class="form-group">
+     <label for="id">IDENTIFICADOR</label>
+     <input class="form-control" id="id" type="number" [(ngModel)]="identificador" [ngModelOptions]="{standalone: true}" />
+  </div>
+  <div class="form-group">
+    <label for="nom">NOMBRE</label>
+    <input class="form-control" id="nom" type="text" [(ngModel)]="nombre" [ngModelOptions]="{standalone: true}"/>
+ </div>
+ <div class="form-group">
+  <label for="carg">CARGO</label>
+  <input class="form-control" id="carg" type="text" [(ngModel)]="cargo" [ngModelOptions]="{standalone: true}"/>
+ </div>
+ <div class="form-group">
+  <label for="carg">Direccion</label>
+  <input class="form-control" id="carg" type="text" [(ngModel)]="direccion" [ngModelOptions]="{standalone: true}"/>
+ </div>
+ <div class="form-group">
+  <label for="sal">EDAD</label>
+  <input class="form-control" id="sal" type="number" [(ngModel)]="edad" [ngModelOptions]="{standalone: true}"/>
+ </div>
+ <div class="form-group">
+  <label for="img">IMAGEN</label>
+  <input class="form-control" id="img" type="text" [(ngModel)]="imagen" [ngModelOptions]="{standalone: true}"/>
+ </div>
+
+ <button class="btn bg-danger" (click)="confirmarModificacion(identificador)">Confirmar Modificación</button>
+</form>
+</div>
+</div>

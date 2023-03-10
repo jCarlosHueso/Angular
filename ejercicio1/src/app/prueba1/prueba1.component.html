@@ -1,0 +1,15 @@
+<div class="text-center">
+
+  <h3>Teclea Euros</h3>
+<input  [(ngModel)]="euro"  (keyup)="actualizaEuros()">
+<br>
+
+<h3>Teclea Dolares</h3>
+<input  [(ngModel)]="dolar"  (keyup)="actualizaDolares()">
+<br>
+
+<h3>Teclea Yenes</h3>
+<input  [(ngModel)]="yen"  (keyup)="actualizaYenes()">
+<br>
+<button class="btn btn-success" (click)="limpia()">Limpiar</button>
+</div>

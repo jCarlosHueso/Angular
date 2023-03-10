@@ -1,0 +1,50 @@
+<div class="container">
+
+  <div class="row">
+
+    <div class="example-container centrado">
+      <form [formGroup]="datosPersonalesFG" (ngSubmit)="Enviar()" class="example-form">
+      <p>
+        <!-- nombre -->
+        <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Nombre</mat-label>
+              <input matInput placeholder="Teclea nombre" formControlName="nombre">
+              <mat-error *ngIf="ControlarErrorres('nombre', 'required')">Nombre requerido</mat-error>
+              <mat-error *ngIf="ControlarErrorres('nombre', 'minlength')">Nombre más de 3 caracteres</mat-error>
+              <mat-error *ngIf="ControlarErrorres('nombre', 'maxlength')">Nombre menos de 10 caracteres</mat-error>
+         </mat-form-field>
+      </p>
+      <p>
+        <!-- apellidos -->
+        <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Apellido</mat-label>
+              <input matInput placeholder="Teclea apellido" formControlName="apellido">
+              <mat-error *ngIf="ControlarErrorres('apellido', 'required')">Apellido requerido</mat-error>
+              <mat-error *ngIf="ControlarErrorres('apellido', 'minlength')">Apellido más de 10 caracteres</mat-error>
+              <mat-error *ngIf="ControlarErrorres('apellido', 'maxlength')">Apellido menos de 20 caracteres</mat-error>
+         </mat-form-field>
+      </p>
+      <p>
+        <!-- email -->
+        <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Email</mat-label>
+              <input matInput placeholder="Teclea mail" formControlName="mail">
+              <mat-error *ngIf="ControlarErrorres('mail', 'required')">Mail requerido</mat-error>
+              <mat-error *ngIf="ControlarErrorres('mail', 'mail')">tecla un email valido</mat-error>
+         </mat-form-field>
+      </p>
+      <p>
+        <!-- password -->
+        <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>Password</mat-label>
+              <input matInput placeholder="Teclea password" formControlName="password">
+              <mat-error *ngIf="ControlarErrorres('password', 'required')">Password requerido</mat-error>
+              <mat-error *ngIf="ControlarErrorres('password', 'minlength')">Nombre más de 8 caracteres</mat-error>
+              <mat-error *ngIf="ControlarErrorres('password', 'maxlength')">Nombre menos de 16 caracteres</mat-error>
+         </mat-form-field>
+      </p>
+      <button type="submit" [disabled]="!datosPersonalesFG.valid" >Registrar</button>
+      </form>
+  </div>
+
+  </div>

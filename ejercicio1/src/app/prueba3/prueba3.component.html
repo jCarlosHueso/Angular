@@ -1,0 +1,71 @@
+
+<div class="container">
+  <h1>Gestión de Frutería</h1>
+  <div class="row">
+
+    <div class="col-lg-4">
+      <form #f = "ngForm">
+      <div class="form-group">
+        <label for="id">ID</label>
+        <input type="text" class="form-control" id="id" name="id" placeholder="Enter id"[(ngModel)] = "selectedProduct.id">
+
+      </div>
+      <div class="form-group">
+        <label for="nombre">NOMBRE</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Enter nombre"[(ngModel)] = "selectedProduct.nombre">
+
+      </div>
+      <div class="form-group">
+        <label for="precio">PRECIO</label>
+        <input type="number" class="form-control" id="precio" name="precio" placeholder="Enter precio"[(ngModel)] = "selectedProduct.precio">
+
+      </div>
+      <div class="form-group">
+        <label for="unidades">UNIDADES</label>
+        <input type="number" class="form-control" id="unidades" name="unidades" placeholder="Enter unidades"[(ngModel)] = "selectedProduct.unidades">
+
+      </div>
+      <div class="form-group">
+        <label for="imagen">IMAGEN</label>
+        <input type="text" class="form-control" id="imagen" name="imagen" placeholder="Enter imagen"[(ngModel)] = "selectedProduct.imagen">
+
+      </div>
+    </form>
+      <input type="button" class="btn btn-info ml-2" (click)="crearProducto(f)" value="Crear Productos">
+      <input type="button" class="btn btn-primary ml-2" (click)="actualizarProducto(f)" value="Actualizar Productos">
+    </div>
+
+<div class="col-lg-6">
+  <table class="table table-striped table-bordered">
+    <tr>
+    <th>ID</th>
+    <th>Nombre </th>
+    <th>Precio </th>
+    <th>Unidades</th>
+
+    <th>Imagen </th>
+    <th>Editar</th>
+    <th>Eliminar</th>
+    </tr>
+    <tr *ngFor="let producto of productos">
+    <td>{{ producto.id }}</td>
+    <td>{{ producto.nombre }}</td>
+    <td>{{ producto.precio }}</td>
+    <td>{{ producto.unidades }}</td>
+
+     <td><img src={{producto.imagen}} width="80px" height="80px"></td>
+    <td>
+    <button class="btn btn-danger ml-2" (click)="seleccionarProducto(producto)">Seleccionar</button></td>
+    <td>
+    <button class="btn btn-success ml-2" id="del" (click)="eliminarProducto(producto.id)">Eliminar</button>
+    </td>
+    </tr>
+    </table>
+</div>
+</div>
+
+
+
+
+</div>
+
